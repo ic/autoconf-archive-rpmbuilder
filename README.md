@@ -11,3 +11,10 @@ Just execute the `install` script with an optional `autoconf-archive` version.
     ./install 2016.09.16
 
 The version defaults to `2016.09.16`.
+
+
+Thanks \& See Also
+------------------
+
+* Repository inspired by [wendall911's earlier work](https://github.com/wendall911/autoconf-archive), which also explains using Mock.
+* Also inspired by [meltwater's work](https://github.com/meltwater/autoconf-archive-rpm), which is cleaner at this stage, as self-contained.
