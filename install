@@ -16,11 +16,12 @@ echo "Ensure all dependencies are available..."
 yum install -y rpm-build rpmdevtools yum-utils make
 
 echo "Build RPM from source..."
+SRPM_FILE=/usr/src/redhat/SRPMS/autoconf-archive-$VERSION-1.src.rpm
 pushd $WORK_DIR
 spectool -g -R autoconf-archive.spec
 rpmbuild -bs autoconf-archive.spec
-yum-builddep /usr/src/redhat/SRPMS/autoconf-archive-$VERSION-1.src.rpm
-rpmbuild --rebuild /usr/src/redhat/SRPMS/autoconf-archive-$VERSION-1.src.rpm
+yum-builddep $SRPM_FILE
+rpmbuild --rebuild $SRPM_FILE
 popd
 
 RPM_FILE=/usr/src/redhat/RPMS/noarch/autoconf-archive-$VERSION-1.noarch.rpm
@@ -29,3 +30,5 @@ rpm -i $RPM_FILE
 
 echo "Clean up $WORK_DIR"
 rm -rf $WORK_DIR
+rm -f $SRPM_FILE
+rm -f $RPM_FILE
