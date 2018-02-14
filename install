@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+
+VERSION=${1:-2016.09.16}
+
+WORK_DIR=/tmp/autoconf-archive-rpmbuilder
+mkdir -p $WORK_DIR
+
+SPEC_FILE=$WORK_DIR/autoconf-archive.spec
+cat autoconf-archive.spec.template | sed s/__VERSION__/$VERSION/g > $SPEC_FILE
+
+
+#yum install rpm-build rpmdevtools yum-utils make
+#
+#pushd $WORK_DIR
+#
+#spectool -g -R autoconf-archive.spec
+#rpmbuild -bs autoconf-archive.spec
+#yum-builddep /usr/src/redhat/SRPMS/autoconf-archive-$VERSION-1.src.rpm
+#rpmbuild --rebuild /usr/src/redhat/SRPMS/autoconf-archive-$VERSION-1.src.rpm
+#rpm -i /usr/src/redhat/RPMS/noarch/autoconf-archive-$VERSION-1.noarch.rpm
+#
+#popd
+#
+#rm -rf $WORK_DIR
