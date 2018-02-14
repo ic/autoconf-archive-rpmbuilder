@@ -13,6 +13,14 @@ Just execute the `install` script with an optional `autoconf-archive` version.
 The version defaults to `2016.09.16`.
 
 
+Notes
+-----
+
+This utility is a simple automation for creating the RPM. At this stage, it tries to keep things clean by working in a separate directory, and cleaning up all generated files before ending. It however generate files under `/usr/src/redhat/{SRPMS|RPMS}`, which is better avoided. The log output gives the full paths, if you need manual cleaning after a failure. Successful completion of the install script removes all these files.
+
+The spec file ends with an empty changelog section. A later version of this script could rely on [autoconf-archive's source repository](https://www.gnu.org/software/autoconf-archive/Downloads.html#Downloads) to convert the Git log into the changelog (basically run what `autoconf-archive` build process does in its `bootstrap.sh` script). This looks overkill at this stage, so dropped at first.
+
+
 Thanks \& See Also
 ------------------
 
