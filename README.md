@@ -16,9 +16,9 @@ The version defaults to `2016.09.16`.
 Notes
 -----
 
-This utility is a simple automation for creating the RPM. At this stage, it tries to keep things clean by working in a separate directory, and cleaning up all generated files before ending. It however generate files under `/usr/src/redhat/{SRPMS|RPMS}`, which is better avoided. The log output gives the full paths, if you need manual cleaning after a failure. Successful completion of the install script removes all these files.
-
-The spec file ends with an empty changelog section. A later version of this script could rely on [autoconf-archive's source repository](https://www.gnu.org/software/autoconf-archive/Downloads.html#Downloads) to convert the Git log into the changelog (basically run what `autoconf-archive` build process does in its `bootstrap.sh` script). This looks overkill at this stage, so dropped at first.
+* Tested on CentOS 5.11 (through a Docker image: `quay.io/pypa/manylinux1_x86_64`). The script builds on the target machine, and it was inspired by spec files for CentOS 6 and 7---assuming it works fine on these platforms, as the script uses the toolchain available on the machine.
+* This utility is a simple automation for creating the RPM. At this stage, it tries to keep things clean by working in a separate directory, and cleaning up all generated files before ending. It however generate files under `/usr/src/redhat/{SRPMS|RPMS}`, which is better avoided. The log output gives the full paths, if you need manual cleaning after a failure. Successful completion of the install script removes all these files.
+* The spec file ends with an empty changelog section. A later version of this script could rely on [autoconf-archive's source repository](https://www.gnu.org/software/autoconf-archive/Downloads.html#Downloads) to convert the Git log into the changelog (basically run what `autoconf-archive` build process does in its `bootstrap.sh` script). This looks overkill at this stage, so dropped at first.
 
 
 Thanks \& See Also
